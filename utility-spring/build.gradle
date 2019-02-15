@@ -47,6 +47,10 @@ distDocker {
     exposePort 8080
 }
 
+springBoot { 
+    executable = true 
+}
+
 task tagDocker(type: Docker) {
     applicationName = 'utility-spring'
     tagVersion = '1.0'
@@ -56,7 +60,7 @@ task buildDocker(type: Docker) {
   baseImage = 'java:8'
   tag = 'utility-spring/docker-projects'
   addFile {
-    from jar
+    from bootJar
     rename {'app.jar'}
   }
   entryPoint(['java','-jar', '/app.jar'])
