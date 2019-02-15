@@ -36,6 +36,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+docker {
+    baseImage "java:8"
+    maintainer 'Anwaar Mehmood "abcdef@gmail.com"'
+}
+
 distDocker {
     exposePort 8080
 }
