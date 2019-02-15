@@ -7,7 +7,7 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		   classpath 'se.transmode.gradle:gradle-docker:1.1'
+		   classpath 'se.transmode.gradle:gradle-docker:1.2'
 	}
 }
 
@@ -43,4 +43,9 @@ docker {
 
 distDocker {
     exposePort 8080
+}
+
+task tagDocker(type: Docker) {
+    applicationName = 'utility-spring'
+    tagVersion = '1.0'
 }
