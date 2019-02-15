@@ -7,16 +7,22 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		   classpath 'se.transmode.gradle:gradle-docker:1.1'
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+apply plugin: 'docker'
 
 group = 'com.dc.spring'
 version = '1.0'
 sourceCompatibility = '1.8'
+mainClassName = 'com.dc.spring.app.UtilityApplication'
+
+
 
 repositories {
 	mavenCentral()
@@ -28,4 +34,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+distDocker {
+    exposePort 8080
 }
