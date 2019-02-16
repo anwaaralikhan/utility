@@ -47,10 +47,6 @@ distDocker {
     exposePort 8080
 }
 
-springBoot {
-    mainClassName = 'com.dc.spring.app.UtilityApplication'
-}
-
 task tagDocker(type: Docker) {
     applicationName = 'utility-spring'
     tagVersion = '1.0'
