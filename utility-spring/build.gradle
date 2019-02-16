@@ -54,7 +54,8 @@ task tagDocker(type: Docker) {
 
 task buildDocker(type: Docker) {
   baseImage = 'java:8'
-  tag = 'utility-spring/docker-projects'
+  //tag = 'utility-spring/docker-projects'
+  applicationName = bootJar.baseName
   addFile {
     from bootJar
     rename {'app.jar'}
